@@ -25,6 +25,9 @@ dependencies:
   # Network
   dio: ^5.2.1+1
   in_app_update:
+  cached_network_image: ^3.3.0
+  flutter_screenutil: ^5.9.0
+  flutter_spinkit: ^5.2.0
 
 dev_dependencies:
   flutter_test:

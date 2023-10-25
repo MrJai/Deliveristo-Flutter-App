@@ -14,6 +14,160 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+PhotoModel _$PhotoModelFromJson(Map<String, dynamic> json) {
+  return _PhotoModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PhotoModel {
+  String get message => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PhotoModelCopyWith<PhotoModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PhotoModelCopyWith<$Res> {
+  factory $PhotoModelCopyWith(
+          PhotoModel value, $Res Function(PhotoModel) then) =
+      _$PhotoModelCopyWithImpl<$Res, PhotoModel>;
+  @useResult
+  $Res call({String message, String status});
+}
+
+/// @nodoc
+class _$PhotoModelCopyWithImpl<$Res, $Val extends PhotoModel>
+    implements $PhotoModelCopyWith<$Res> {
+  _$PhotoModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? status = null,
+  }) {
+    return _then(_value.copyWith(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PhotoModelImplCopyWith<$Res>
+    implements $PhotoModelCopyWith<$Res> {
+  factory _$$PhotoModelImplCopyWith(
+          _$PhotoModelImpl value, $Res Function(_$PhotoModelImpl) then) =
+      __$$PhotoModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message, String status});
+}
+
+/// @nodoc
+class __$$PhotoModelImplCopyWithImpl<$Res>
+    extends _$PhotoModelCopyWithImpl<$Res, _$PhotoModelImpl>
+    implements _$$PhotoModelImplCopyWith<$Res> {
+  __$$PhotoModelImplCopyWithImpl(
+      _$PhotoModelImpl _value, $Res Function(_$PhotoModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? status = null,
+  }) {
+    return _then(_$PhotoModelImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PhotoModelImpl implements _PhotoModel {
+  _$PhotoModelImpl({required this.message, required this.status});
+
+  factory _$PhotoModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PhotoModelImplFromJson(json);
+
+  @override
+  final String message;
+  @override
+  final String status;
+
+  @override
+  String toString() {
+    return 'PhotoModel(message: $message, status: $status)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PhotoModelImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PhotoModelImplCopyWith<_$PhotoModelImpl> get copyWith =>
+      __$$PhotoModelImplCopyWithImpl<_$PhotoModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PhotoModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PhotoModel implements PhotoModel {
+  factory _PhotoModel(
+      {required final String message,
+      required final String status}) = _$PhotoModelImpl;
+
+  factory _PhotoModel.fromJson(Map<String, dynamic> json) =
+      _$PhotoModelImpl.fromJson;
+
+  @override
+  String get message;
+  @override
+  String get status;
+  @override
+  @JsonKey(ignore: true)
+  _$$PhotoModelImplCopyWith<_$PhotoModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 ApiResponse _$ApiResponseFromJson(Map<String, dynamic> json) {
   return _ApiResponse.fromJson(json);
 }
@@ -21,7 +175,7 @@ ApiResponse _$ApiResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ApiResponse {
   int? get statusCode => throw _privateConstructorUsedError;
-  List<dynamic> get data => throw _privateConstructorUsedError;
+  dynamic get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +189,7 @@ abstract class $ApiResponseCopyWith<$Res> {
           ApiResponse value, $Res Function(ApiResponse) then) =
       _$ApiResponseCopyWithImpl<$Res, ApiResponse>;
   @useResult
-  $Res call({int? statusCode, List<dynamic> data});
+  $Res call({int? statusCode, dynamic data});
 }
 
 /// @nodoc
@@ -52,17 +206,17 @@ class _$ApiResponseCopyWithImpl<$Res, $Val extends ApiResponse>
   @override
   $Res call({
     Object? statusCode = freezed,
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
       statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
               as int?,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -75,7 +229,7 @@ abstract class _$$ApiResponseImplCopyWith<$Res>
       __$$ApiResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? statusCode, List<dynamic> data});
+  $Res call({int? statusCode, dynamic data});
 }
 
 /// @nodoc
@@ -90,17 +244,17 @@ class __$$ApiResponseImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? statusCode = freezed,
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$ApiResponseImpl(
       statusCode: freezed == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
               as int?,
-      data: null == data
-          ? _value._data
+      data: freezed == data
+          ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as dynamic,
     ));
   }
 }
@@ -108,8 +262,7 @@ class __$$ApiResponseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ApiResponseImpl implements _ApiResponse {
-  _$ApiResponseImpl({this.statusCode = 500, required final List<dynamic> data})
-      : _data = data;
+  _$ApiResponseImpl({this.statusCode = 500, required this.data});
 
   factory _$ApiResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ApiResponseImplFromJson(json);
@@ -117,13 +270,8 @@ class _$ApiResponseImpl implements _ApiResponse {
   @override
   @JsonKey()
   final int? statusCode;
-  final List<dynamic> _data;
   @override
-  List<dynamic> get data {
-    if (_data is EqualUnmodifiableListView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_data);
-  }
+  final dynamic data;
 
   @override
   String toString() {
@@ -137,13 +285,13 @@ class _$ApiResponseImpl implements _ApiResponse {
             other is _$ApiResponseImpl &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, statusCode, const DeepCollectionEquality().hash(_data));
+      runtimeType, statusCode, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -160,9 +308,8 @@ class _$ApiResponseImpl implements _ApiResponse {
 }
 
 abstract class _ApiResponse implements ApiResponse {
-  factory _ApiResponse(
-      {final int? statusCode,
-      required final List<dynamic> data}) = _$ApiResponseImpl;
+  factory _ApiResponse({final int? statusCode, required final dynamic data}) =
+      _$ApiResponseImpl;
 
   factory _ApiResponse.fromJson(Map<String, dynamic> json) =
       _$ApiResponseImpl.fromJson;
@@ -170,7 +317,7 @@ abstract class _ApiResponse implements ApiResponse {
   @override
   int? get statusCode;
   @override
-  List<dynamic> get data;
+  dynamic get data;
   @override
   @JsonKey(ignore: true)
   _$$ApiResponseImplCopyWith<_$ApiResponseImpl> get copyWith =>
