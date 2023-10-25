@@ -17,9 +17,12 @@ class RandomPhotoView extends StackedView<RandomPhotoViewModel> {
   }
 
   @override
-  Widget builder(BuildContext context, RandomPhotoViewModel viewModel, Widget? child) {
+  Widget builder(
+      BuildContext context, RandomPhotoViewModel viewModel, Widget? child) {
     return Scaffold(
-      body: Center(
+      body: viewModel.isBusy
+          ? const SpinKitFoldingCube(color: AppColors.kcPrimaryColor,)
+          : Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -35,11 +38,8 @@ class RandomPhotoView extends StackedView<RandomPhotoViewModel> {
                             image: imageProvider, fit: BoxFit.cover),
                       ),
                     ),
-                    placeholder: (context, url) => Transform.scale(
-                      scale: 0.3,
-                      child:  const SpinKitChasingDots(color: AppColors.kcPrimaryColor,)),
                     errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                        const Icon(Icons.error,color: AppColors.kcPrimaryColor,),
                     imageUrl: viewModel.photoModel?.message ?? defaultImage,
                   ),
                   SizedBox(
@@ -49,9 +49,11 @@ class RandomPhotoView extends StackedView<RandomPhotoViewModel> {
                         onPressed: () {
                           viewModel.init();
                         },
-                        icon:
-                            const Icon(Icons.keyboard_double_arrow_right_rounded,color: Colors.white,),
-                        label:  Text(
+                        icon: const Icon(
+                          Icons.keyboard_double_arrow_right_rounded,
+                          color: Colors.white,
+                        ),
+                        label: Text(
                           "Fetch Random Picture",
                           style: kManropeText.copyWith(color: Colors.white),
                         )),
@@ -63,5 +65,6 @@ class RandomPhotoView extends StackedView<RandomPhotoViewModel> {
   }
 
   @override
-  RandomPhotoViewModel viewModelBuilder(BuildContext context) => RandomPhotoViewModel();
+  RandomPhotoViewModel viewModelBuilder(BuildContext context) =>
+      RandomPhotoViewModel();
 }

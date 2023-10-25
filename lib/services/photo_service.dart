@@ -9,4 +9,9 @@ class PhotoService{
     return PhotoModel.fromJson(apiResponse.data);
   }
 
+  Future fetchAllBreedsList() async {
+    ApiResponse apiResponse = await _apiService.get(url: 'https://dog.ceo/api/breeds/list/all');
+    return AllBreedsModel.fromJson(apiResponse.data);
+  }
+
 }
