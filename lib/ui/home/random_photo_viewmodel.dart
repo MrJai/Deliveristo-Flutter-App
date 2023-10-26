@@ -6,10 +6,24 @@ import 'package:stacked/stacked.dart';
 class RandomPhotoViewModel extends BaseViewModel {
   final _photoService = locator<PhotoService>();
   PhotoModel? _photoModel;
-  PhotoModel? get photoModel => _photoModel;
-  Future<void> init() async {
-     _photoModel = await runBusyFuture(_photoService.fetchRandomPhoto());
-     rebuildUi();
 
+  String? _dropDownSelectedItem;
+  String? get dropDownSelectedItem => _dropDownSelectedItem;
+
+  PhotoModel? get photoModel => _photoModel;
+  Future<void> init(breed) async {
+    _photoModel = await runBusyFuture(_photoService.fetchRandomPhoto(breed));
+    rebuildUi();
+  }
+
+  setDropDownValueAndFetchPhoto(String breed, String? subBreed) async {
+    _dropDownSelectedItem = subBreed;
+    if (breed == 'random') {
+      _photoModel =
+          await runBusyFuture(_photoService.fetchRandomPhoto(breed, subBreed));
+    } else {
+      init(breed);
+    }
+    rebuildUi();
   }
 }
