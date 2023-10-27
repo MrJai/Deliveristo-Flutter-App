@@ -3,8 +3,10 @@
 Introducing Dog API Deliveristo App: Your iOS/Android app to fetch the latest breed from an API. Crafted with Flutter, this app, built on the MVVM architecture, empowers you with to fetch Dog pictures according to breed and sub-breed. Explore an array of features, select breed or sub-breed and get your respective images displayed in a cached network image.
 
 ## Demo Video
+<div align="center">
 [https://github.com/MrJai/Deliveristo-Flutter-App/issues/1#issue-1965106740](https://github.com/MrJai/Deliveristo-Flutter-App/assets/3047049/d2be84eb-c351-4a34-813b-21bbd05a9a28
 )
+</div>
 
 ## Requirements
 Flutter & Dart
