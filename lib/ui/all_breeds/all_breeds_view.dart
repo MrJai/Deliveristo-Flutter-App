@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_stacked_starter/constants/constants.dart';
 import 'package:flutter_stacked_starter/ui/all_breeds/all_breeds_viewmodel.dart';
 import 'package:flutter_stacked_starter/utils/app_text.dart';
+import 'package:flutter_stacked_starter/utils/custom_appbar.dart';
 import 'package:stacked/stacked.dart';
 
 class AllBreedsView extends StackedView<AllBreedsViewModel> {
@@ -17,8 +19,14 @@ class AllBreedsView extends StackedView<AllBreedsViewModel> {
   @override
   Widget builder(
       BuildContext context, AllBreedsViewModel viewModel, Widget? child) {
-    return SafeArea(
-      child: Scaffold(
+    return  Scaffold(
+        appBar:  CustomAppBar(
+          showLeading: false,
+          title: 'Dog Breeds',
+          bgColor: AppColors.kcPrimaryColor,
+          titleColor: Colors.white,
+          height: 40.h,
+        ),
           body: viewModel.isBusy
               ? const SpinKitChasingDots(
                   color: AppColors.kcPrimaryColor,
@@ -56,7 +64,7 @@ class AllBreedsView extends StackedView<AllBreedsViewModel> {
                         ),
                       );
                     }),
-              )),
+              ),
     );
   }
 
