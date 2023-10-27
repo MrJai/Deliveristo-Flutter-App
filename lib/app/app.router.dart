@@ -9,7 +9,7 @@ import 'package:flutter/material.dart' as _i4;
 import 'package:flutter/material.dart';
 import 'package:flutter_stacked_starter/ui/all_breeds/all_breeds_view.dart'
     as _i3;
-import 'package:flutter_stacked_starter/ui/home/random_photo_view.dart' as _i2;
+import 'package:flutter_stacked_starter/ui/random_photo/random_photo_view.dart' as _i2;
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i5;
 

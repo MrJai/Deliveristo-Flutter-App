@@ -33,37 +33,39 @@ class AllBreedsView extends StackedView<AllBreedsViewModel> {
                 )
               : RefreshIndicator(
                 onRefresh: viewModel.init,
-                child: ListView.builder(
-                    itemCount: viewModel.allBreedsModel?.message.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final breed =
-                          viewModel.allBreedsModel?.message.keys.elementAt(index);
-                      final subBreedList = viewModel.allBreedsModel?.message[breed];
-                      return GestureDetector(
-                        onTap: () => viewModel.navigateToRandomPhotoByBreed(breed,subBreedList),
-                        child: ListTile(
-                          title: Text(breed!),
-                          subtitle: subBreedList!.isNotEmpty
-                              ? Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: subBreedList
-                                        .asMap()
-                                        .entries
-                                        .map(
-                                          (entry) => Text(
-                                              entry.value +
-                                                  (entry.key ==
-                                                          subBreedList.length - 1
-                                                      ? ''
-                                                      : ','),
-                                              style: kManropeText),
-                                        )
-                                        .toList(),
-                                  )
-                              : null,
-                        ),
-                      );
-                    }),
+                child: SafeArea(
+                  child: ListView.builder(
+                      itemCount: viewModel.allBreedsModel?.message.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final breed =
+                            viewModel.allBreedsModel?.message.keys.elementAt(index);
+                        final subBreedList = viewModel.allBreedsModel?.message[breed];
+                        return GestureDetector(
+                          onTap: () => viewModel.navigateToRandomPhotoByBreed(breed,subBreedList),
+                          child: ListTile(
+                            title: Text(breed!),
+                            subtitle: subBreedList!.isNotEmpty
+                                ? Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: subBreedList
+                                          .asMap()
+                                          .entries
+                                          .map(
+                                            (entry) => Text(
+                                                entry.value +
+                                                    (entry.key ==
+                                                            subBreedList.length - 1
+                                                        ? ''
+                                                        : ','),
+                                                style: kManropeText),
+                                          )
+                                          .toList(),
+                                    )
+                                : null,
+                          ),
+                        );
+                      }),
+                ),
               ),
     );
   }
